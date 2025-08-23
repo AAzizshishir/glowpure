@@ -30,7 +30,7 @@ export default function Banner() {
         slidesPerView={1}
         pagination={{ clickable: true }}
         autoplay={{
-          delay: 3000, // 3 seconds between slides
+          delay: 4000, // 3 seconds between slides
           disableOnInteraction: false,
         }}
       >
