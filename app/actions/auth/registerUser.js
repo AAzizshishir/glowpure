@@ -1,0 +1,23 @@
+"use server";
+
+import dbConnect from "@/lib/dbConnect";
+import bcrypt from "bcrypt";
+
+export default async function registerUser(payload) {
+  const userCollection = await dbConnect("users");
+
+  // Validation
+  const { email, password } = payload;
+  if (!email || !password) return { success: false };
+
+  const user = await userCollection.findOne({ email: payload.email });
+
+  if (!user) {
+    const hashedPassword = await bcrypt.hash(password, 10);
+    payload.password = hashedPassword;
+    const result = await userCollection.insertOne(payload);
+    const { acknowledged, insertedId } = result;
+    return { acknowledged, insertedId: insertedId.toString() };
+  }
+  return { success: false };
+}
