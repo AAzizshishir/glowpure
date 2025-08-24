@@ -26,11 +26,11 @@ export default function login() {
       const response = await signIn("credentials", {
         email,
         password,
-        callbackUrl: "/",
+        callbackUrl: "/products",
         redirect: false,
       });
       if (response.ok) {
-        router.push("/");
+        router.push("/products");
         form.reset();
         Swal.fire({
           position: "top-end",
