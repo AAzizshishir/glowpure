@@ -1,0 +1,10 @@
+import dbConnect from "@/lib/dbConnect";
+import { NextResponse } from "next/server";
+
+export const POST = async (req) => {
+  const body = await req.json();
+  const productsCollection = await dbConnect("products");
+  const result = await productsCollection.insertOne(body);
+
+  return NextResponse.json({ result });
+};
