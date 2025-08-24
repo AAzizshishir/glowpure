@@ -4,8 +4,9 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default async function FeatureProducts() {
-  const data = dbConnect("products");
-  const featureProducts = await data.find().limit(4).toArray();
+  const productsCollection = await dbConnect("products");
+  const featureProducts = await productsCollection.find({}).limit(4).toArray();
+
   return (
     <section className="my-16 px-4 lg:px-10">
       <h2 className="text-center text-4xl lg:text-5xl font-semibold">
@@ -21,7 +22,7 @@ export default async function FeatureProducts() {
             key={product._id}
             className="bg-background rounded-lg shadow-sm hover:scale-105 hover:duration-300 transition p-2"
           >
-            <Link href={`/products/${product._id}`}>
+            <Link href={`/productDetails/${product._id}`}>
               <div className="relative w-full h-48 mb-4">
                 <Image
                   src={product.image}
