@@ -6,7 +6,7 @@ const features = [
   {
     icon: Truck,
     title: "Free Shipping",
-    description: "Free shipping on all US orders or orders above $200",
+    description: "Free shipping orders above $200",
   },
   {
     icon: Phone,
@@ -21,7 +21,7 @@ const features = [
   {
     icon: ShieldCheck,
     title: "Payment Secure",
-    description: "We ensure secure payment with PEV",
+    description: "We ensure secure payment",
   },
 ];
 
