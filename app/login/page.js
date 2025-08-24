@@ -14,7 +14,7 @@ import { signIn } from "next-auth/react";
 import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
 
-export default function login() {
+export default function Login() {
   const router = useRouter();
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,7 +35,7 @@ export default function login() {
         Swal.fire({
           position: "top-end",
           icon: "success",
-          title: "You Successfully Loged In",
+          title: "You Successfully Logged In",
           showConfirmButton: false,
           timer: 1500,
         });
@@ -93,7 +93,7 @@ export default function login() {
         </form>
 
         <CardFooter className="text-sm text-muted-foreground text-center">
-          Don't have an account?{" "}
+          Don&apos;t have an account?{" "}
           <Link href="/register" className="text-primary underline ml-1">
             Sign up
           </Link>

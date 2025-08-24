@@ -32,7 +32,7 @@ export default function AddProductForm() {
     };
 
     try {
-      const res = await fetch("http://localhost:3000/api/service", {
+      const res = await fetch("https://glowpure.vercel.app/api/service", {
         method: "POST",
         body: JSON.stringify(data),
       });
