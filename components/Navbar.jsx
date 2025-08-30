@@ -4,6 +4,7 @@ import React from "react";
 import Links from "./Links";
 import { Button } from "@/components/ui/button";
 import { signOut, useSession } from "next-auth/react";
+import { ThemeToggle } from "./Theme-Toggle";
 
 export default function Navbar() {
   const { data: session, status } = useSession();
@@ -18,6 +19,7 @@ export default function Navbar() {
       <Links />
 
       <div className="flex items-center gap-2">
+        <ThemeToggle />
         <p className="hidden md:block">{session?.user?.email}</p>
         {status === "authenticated" ? (
           <>
@@ -34,7 +36,7 @@ export default function Navbar() {
           <Link href={"/login"}>
             <Button
               className={
-                "bg-primary text-white font-semibold text-base cursor-pointer"
+                "bg-primary dark:bg-primary text-white dark:text-black font-semibold text-base cursor-pointer"
               }
             >
               Login

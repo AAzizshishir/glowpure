@@ -20,7 +20,7 @@ export default async function FeatureProducts() {
         {featureProducts.map((product) => (
           <div
             key={product._id}
-            className="bg-background rounded-lg shadow-sm hover:scale-105 hover:duration-300 transition p-2"
+            className="bg-background rounded-lg shadow-sm hover:scale-105 hover:duration-300 transition p-2 dark:border dark:border-gray-500"
           >
             <Link href={`/productDetails/${product._id}`}>
               <div className="relative w-full h-48 mb-4">
@@ -34,14 +34,14 @@ export default async function FeatureProducts() {
               <h3 className="text-lg font-semibold text-primary">
                 {product.title}
               </h3>
-              <p className="text-sm text-gray-600 mt-1">
+              <p className="text-sm text-gray-600 dark:text-foreground mt-1">
                 {product.description.slice(0, 60)}...
               </p>
               <div className="mt-2 flex justify-between items-center">
                 <span className="text-base font-bold text-foreground">
                   ${product.price}
                 </span>
-                <span className="text-xs bg-secondary text-black px-2 py-1 rounded">
+                <span className="text-xs bg-secondary dark:bg-foreground text-black px-2 py-1 rounded">
                   {product.category}
                 </span>
               </div>

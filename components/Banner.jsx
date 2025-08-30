@@ -20,137 +20,86 @@ import slider3 from "@/public/hero/skinSlider3.jpg";
 import Link from "next/link";
 import { motion } from "motion/react";
 
+const slides = [
+  {
+    id: 1,
+    title: "Essenstial Items",
+    heading: "Beauty Inspired by Real Life",
+    description:
+      "Made using clean, non-toxic ingredients. Our products are designed for everyone",
+    image: slider1,
+  },
+  {
+    id: 2,
+    title: "new collection",
+    heading: "Get the parfectly Hydrated skin",
+    description:
+      "Made using clean, non-toxic ingredients. Our products are designed for everyone",
+    image: slider2,
+  },
+  {
+    id: 3,
+    title: "get the glow",
+    heading: "be your kind of beauty",
+    description:
+      "Made using clean, non-toxic ingredients. Our products are designed for everyone",
+    image: slider3,
+  },
+];
+
 export default function Banner() {
   return (
     <section className="h-[550px] ">
       <Swiper
-        // install Swiper modules
         modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
         spaceBetween={50}
         slidesPerView={1}
         pagination={{ clickable: true }}
         autoplay={{
-          delay: 4000, // 3 seconds between slides
+          delay: 4000,
           disableOnInteraction: false,
         }}
       >
-        {/* Slider 1 */}
-        <SwiperSlide>
-          <div className="flex flex-col lg:flex-row gap-5">
-            {/* Text */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="flex flex-col justify-center pl-4 lg:pl-10 mt-4 lg:mt-0"
-            >
-              <span className="uppercase tracking-[5px]">Essenstial Items</span>
-              <h2 className="text-4xl md:text-6xl my-2 lg:my-4 font-medium leading-12 md:leading-[70px]">
-                Beauty Inspired by <br /> Real Life
-              </h2>
-              <p className="text-slate-500 tracking-wider mb-4">
-                Made using clean, non-toxic ingredients. Our products are
-                designed for everyone
-              </p>
-              <Link href={""}>
-                <Button className="w-[100px] cursor-pointer">Shop Now</Button>
-              </Link>
-            </motion.div>
-            {/* Image */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="w-full lg:w-6/12"
-            >
-              <Image
-                src={slider1}
-                alt="Skin Care Image"
-                className="h-[550px] object-cover"
-              />
-            </motion.div>
-          </div>
-        </SwiperSlide>
-        {/* Slider 2 */}
-        <SwiperSlide>
-          <div className="flex flex-col lg:flex-row gap-5">
-            {/* Text */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="flex flex-col justify-center pl-4 lg:pl-10 mt-4 lg:mt-0"
-            >
-              <span className="uppercase tracking-[5px]">new collection</span>
-              <h2 className="text-4xl md:text-6xl my-2 lg:my-4 font-medium leading-12 md:leading-[70px] capitalize">
-                Get the parfectly <br /> Hydrated skin
-              </h2>
-              <p className="text-slate-500 tracking-wider mb-4">
-                Made using clean, non-toxic ingredients. Our products are
-                designed for everyone
-              </p>
-              <Link href={""}>
-                <Button className="w-[100px] cursor-pointer">Shop Now</Button>
-              </Link>
-            </motion.div>
-            {/* Image */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="w-full lg:w-6/12"
-            >
-              <Image
-                src={slider2}
-                alt="Skin Care Image"
-                className="h-[550px] object-cover"
-              />
-            </motion.div>
-          </div>
-        </SwiperSlide>
-        {/* Slider 3 */}
-        <SwiperSlide>
-          <div className="flex flex-col lg:flex-row gap-5">
-            {/* Text */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="flex flex-col justify-center pl-4 lg:pl-10 mt-4 lg:mt-0"
-            >
-              <span className="uppercase tracking-[5px]">get the glow</span>
-              <h2 className="text-4xl md:text-6xl my-2 lg:my-4 font-medium leading-12 md:leading-[70px] capitalize">
-                be your kind of <br /> beauty
-              </h2>
-              <p className="text-slate-500 tracking-wider mb-4">
-                Made using clean, non-toxic ingredients. Our products are
-                designed for everyone
-              </p>
-              <Link href={""}>
-                <Button className="w-[100px] cursor-pointer">Shop Now</Button>
-              </Link>
-            </motion.div>
-            {/* Image */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="w-full lg:w-6/12"
-            >
-              <Image
-                src={slider3}
-                alt="Skin Care Image"
-                className="h-[550px] object-cover"
-              />
-            </motion.div>
-          </div>
-        </SwiperSlide>
+        {slides.map((slide) => (
+          <SwiperSlide key={slide.id}>
+            <div className="flex flex-col lg:flex-row gap-5">
+              {/* Text */}
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+                className="flex flex-col justify-center pl-4 lg:pl-10 mt-4 lg:mt-0"
+              >
+                <span className="uppercase tracking-[5px]">{slide.title}</span>
+                <h2 className="text-4xl md:text-6xl my-2 lg:my-4 font-medium leading-12 md:leading-[70px] capitalize">
+                  {slide.heading}
+                </h2>
+                <p className="text-slate-500 dark:text-white tracking-wider mb-4">
+                  {slide.description}
+                </p>
+                <Link href="/products">
+                  <Button className="w-[100px] cursor-pointer">Shop Now</Button>
+                </Link>
+              </motion.div>
+
+              {/* Image */}
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+                className="w-full lg:w-6/12"
+              >
+                <Image
+                  src={slide.image}
+                  alt="Skin Care Image"
+                  className="h-[550px] object-cover"
+                />
+              </motion.div>
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </section>
   );

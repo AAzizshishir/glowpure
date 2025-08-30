@@ -6,7 +6,7 @@ import React from "react";
 export default function Links() {
   const { data: session, status } = useSession();
   return (
-    <ul className="flex gap-3 text-black text-lg">
+    <ul className="flex gap-3 text-black dark:text-white text-lg">
       <li>
         <Link href={"/"}>Home</Link>
       </li>
